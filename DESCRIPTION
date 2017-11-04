@@ -1,0 +1,13 @@
+Package: geomhurricane
+Type: Package
+Title: Hurricane Plotting utility
+Version: 0.0.0.1
+Authors@R: person("Balaji Ambresh", "Rajkumar", email = "balaji.ambresh@nym.hush.com", role = c("aut", "cre"))
+Description: This is for displaying the storm data as concentric circles.
+Depends: R (>= 3.4.2)
+Imports: dplyr, iterators, readr, geosphere, ggmap, ggplot2, grid, base, magrittr, rmarkdown, tidyr, testthat, knitr
+License: CC0
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 6.0.1
+VignetteBuilder: knitr

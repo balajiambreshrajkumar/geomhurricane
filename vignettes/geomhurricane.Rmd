@@ -1,0 +1,40 @@
+---
+title: "geomhurricane Usage"
+author: "Balaji Ambresh Rajkumar"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Using fars}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+## About
+This is a library for viewing [hurricane data](http://rammb.cira.colostate.edu/research/tropical_cyclones/tc_extended_best_track_dataset/data/ebtrk_atlc_1988_2015.txt)
+
+```{r, eval=FALSE}
+# Imports
+library(dplyr)
+library(iterators)
+library(readr)
+library(geosphere)
+library(ggplot2)
+library(ggmap)
+library(geomhurricane)
+
+ike_data <- read_hurricane_data(paste0(getwd(), "/ebtrk_atlc_1988_2015.txt"), "IKE-2008", "2008-09-13 06:00:00")
+
+custom_map5 <- get_map("Louisiana", zoom = 5, maptype = "toner-background") %>% ggmap(extent = "device")
+hurricane_ike <- custom_map5 +
+  geom_hurricane(data = ike_data,
+                 aes(x = longitude, y = latitude,
+                     r_ne = ne, r_se = se, r_nw = nw, r_sw = sw,
+                     fill = wind_speed, color = wind_speed)) +
+  scale_color_manual(name = "Wind speed (kts)",
+                     values = c("red", "orange", "yellow")) +
+  scale_fill_manual(name = "Wind speed (kts)",
+                    values = c("red", "orange", "yellow"))
+# Save the data
+jpeg("hurricane_data.jpeg")
+plot(hurricane_ike)
+dev.off()
+```
