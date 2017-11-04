@@ -3,7 +3,7 @@ title: "geomhurricane Usage"
 author: "Balaji Ambresh Rajkumar"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Using fars}
+  %\VignetteIndexEntry{Using geomhurricane}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---

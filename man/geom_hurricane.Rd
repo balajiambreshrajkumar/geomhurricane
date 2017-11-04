@@ -10,11 +10,19 @@ geom_hurricane(mapping = NULL, data = NULL, stat = "identity",
   inherit.aes = TRUE, ...)
 }
 \arguments{
+\item{mapping}{The mapping}
+
 \item{data}{The hurricane data}
 
 \item{stat}{Statistics object currently not doing any transformations}
 
 \item{position}{Origin position}
+
+\item{na.rm}{see the template function definition.}
+
+\item{show.legend}{see the template function definition.}
+
+\item{inherit.aes}{see the template function definition.}
 }
 \value{
 A layer for plotting the hurricane data.

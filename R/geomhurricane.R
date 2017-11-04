@@ -198,13 +198,13 @@ GeomHurricane <- ggplot2::ggproto("GeomHurricane", ggplot2::Geom,
 #' Create an instance of GeomHurricane
 #' source from geom_polygon
 #' @importFrom ggplot2 layer
-#' @param mapping
+#' @param mapping The mapping
 #' @param data The hurricane data
 #' @param stat Statistics object currently not doing any transformations
 #' @param position Origin position
-#' @param na.rm
-#' @param show.legend
-#' @param inherit.aes
+#' @param na.rm see the template function definition.
+#' @param show.legend see the template function definition.
+#' @param inherit.aes see the template function definition.
 #' @return A layer for plotting the hurricane data.
 #' @export
 geom_hurricane <- function(mapping = NULL, data = NULL, stat = "identity",
@@ -218,28 +218,3 @@ geom_hurricane <- function(mapping = NULL, data = NULL, stat = "identity",
   )
 }
 
-# library(dplyr)
-# library(iterators)
-# library(readr)
-# library(geosphere)
-# library(ggplot2)
-# library(ggthemes)
-# library(ggmap)
-#
-# setwd("/home/xyz/05_building-new-graphical-elements")
-# ike_data <- read_hurricane_data(paste0(getwd(), "/ebtrk_atlc_1988_2015.txt"), "IKE-2008", "2008-09-13 06:00:00")
-#
-# custom_map5 <- get_map("Louisiana", zoom = 5, maptype = "toner-background") %>% ggmap(extent = "device")
-# hurricane_ike <- custom_map5 +
-#   geom_hurricane(data = ike_data,
-#                  aes(x = longitude, y = latitude,
-#                      r_ne = ne, r_se = se, r_nw = nw, r_sw = sw,
-#                      fill = wind_speed, color = wind_speed)) +
-#   scale_color_manual(name = "Wind speed (kts)",
-#                      values = c("red", "orange", "yellow")) +
-#   scale_fill_manual(name = "Wind speed (kts)",
-#                     values = c("red", "orange", "yellow"))
-#
-# jpeg("hurricane_data.jpeg")
-# plot(hurricane_ike)
-# dev.off()
